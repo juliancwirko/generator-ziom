@@ -1,0 +1,11 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import "bootstrap";
+
+// bootstrap angular ui must have
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
