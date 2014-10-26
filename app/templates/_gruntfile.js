@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     app: 'app',
@@ -10,7 +13,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           outputStyle: 'extended',
-          includePaths: ['<%%= app %>/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/']
+          includePaths: ['<%%= app %>/bower_components/bootstrap-sass-official/assets/stylesheets/']
         },
         files: {
           '<%%= app %>/css/style.css': '<%%= app %>/scss/style.scss'
@@ -43,7 +46,7 @@ module.exports = function(grunt) {
         }]
       },
     },
-    
+
     uglify: {
       options: {
         preserveComments: 'some',
@@ -105,7 +108,7 @@ module.exports = function(grunt) {
       }
     },
 
-    bowerInstall: {
+    wiredep: {
       target: {
         src: [
           '<%%= app %>/**/*.html'
@@ -127,23 +130,11 @@ module.exports = function(grunt) {
         ]
       }
     }
-      
+
   });
 
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-bower-install');
-
   grunt.registerTask('compile-sass', ['sass']);
-  grunt.registerTask('bower-install', ['bowerInstall']);
+  grunt.registerTask('bower-install', ['wiredep']);
   grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
   grunt.registerTask('validate-js', ['jshint']);
   grunt.registerTask('server-dist', ['connect:dist']);

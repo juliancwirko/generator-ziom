@@ -1,10 +1,12 @@
 {
   "name": "generator-ziom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator for simple Angular + Bootstrap + Scss (Libsass) scaffold.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "juliancwirko/generator-ziom",
+  "homepage": "https://github.com/juliancwirko/generator-ziom",
+  "bugs": "https://github.com/juliancwirko/generator-ziom/issues",
   "author": {
     "name": "Julian Ćwirko",
     "email": "julian.cwirko@gmail.com",
@@ -23,8 +25,8 @@
     "yeoman-generator", "Angular", "Bootstrap"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "yeoman-generator": "~0.17.7",
+    "chalk": "~0.5.1"
   },
   "devDependencies": {
     "mocha": "*"
